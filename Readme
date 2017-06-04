@@ -1,0 +1,49 @@
+Requirements -
+> nodejs and npm
+> database server - MongoDB
+
+Run -
+
+> Start mongodb server
+> mongod
+ # it will start mongodb server on port 27017
+
+> npm install
+> node index.js
+# server started on port 8000
+
+Routes ->
+
+1. User registration
+ POST http://localhost/register
+ BODY email : user email address
+      name  : name of user
+      dob   : date of birth in DD/MM/YYYY format
+      status: one line status
+      password: password for login
+
+It Will return authentication token
+
+2. User Login
+
+POST http://localhost/login
+BODY email : email of user
+      password : password of user
+it will return token
+
+//SECURE ROUTES (need token)
+
+3. view profile
+
+GET http://localhost/profile/view?token=#REPLACE THIS WITH TOKEN#
+
+RETURN user profile details
+
+4. update profile
+
+POST http://localhost/profile/update
+BODY token: authentication token
+     name: put updated name if want to update
+     dob: put updated dob if want to update in DD/MM/YYY format
+     status : put updated status if want to update
+     password : put updated password if want to update
